@@ -1,0 +1,15 @@
+D:\Programação\GitHub\SoccerLeagueSimulation\LeagueSimulation\LeagueSimulation\bin\Debug\net6.0\LeagueSimulation.exe
+D:\Programação\GitHub\SoccerLeagueSimulation\LeagueSimulation\LeagueSimulation\bin\Debug\net6.0\LeagueSimulation.deps.json
+D:\Programação\GitHub\SoccerLeagueSimulation\LeagueSimulation\LeagueSimulation\bin\Debug\net6.0\LeagueSimulation.runtimeconfig.json
+D:\Programação\GitHub\SoccerLeagueSimulation\LeagueSimulation\LeagueSimulation\bin\Debug\net6.0\LeagueSimulation.dll
+D:\Programação\GitHub\SoccerLeagueSimulation\LeagueSimulation\LeagueSimulation\bin\Debug\net6.0\LeagueSimulation.pdb
+D:\Programação\GitHub\SoccerLeagueSimulation\LeagueSimulation\LeagueSimulation\obj\Debug\net6.0\LeagueSimulation.csproj.AssemblyReference.cache
+D:\Programação\GitHub\SoccerLeagueSimulation\LeagueSimulation\LeagueSimulation\obj\Debug\net6.0\LeagueSimulation.GeneratedMSBuildEditorConfig.editorconfig
+D:\Programação\GitHub\SoccerLeagueSimulation\LeagueSimulation\LeagueSimulation\obj\Debug\net6.0\LeagueSimulation.AssemblyInfoInputs.cache
+D:\Programação\GitHub\SoccerLeagueSimulation\LeagueSimulation\LeagueSimulation\obj\Debug\net6.0\LeagueSimulation.AssemblyInfo.cs
+D:\Programação\GitHub\SoccerLeagueSimulation\LeagueSimulation\LeagueSimulation\obj\Debug\net6.0\LeagueSimulation.csproj.CoreCompileInputs.cache
+D:\Programação\GitHub\SoccerLeagueSimulation\LeagueSimulation\LeagueSimulation\obj\Debug\net6.0\LeagueSimulation.dll
+D:\Programação\GitHub\SoccerLeagueSimulation\LeagueSimulation\LeagueSimulation\obj\Debug\net6.0\refint\LeagueSimulation.dll
+D:\Programação\GitHub\SoccerLeagueSimulation\LeagueSimulation\LeagueSimulation\obj\Debug\net6.0\LeagueSimulation.pdb
+D:\Programação\GitHub\SoccerLeagueSimulation\LeagueSimulation\LeagueSimulation\obj\Debug\net6.0\LeagueSimulation.genruntimeconfig.cache
+D:\Programação\GitHub\SoccerLeagueSimulation\LeagueSimulation\LeagueSimulation\obj\Debug\net6.0\ref\LeagueSimulation.dll
