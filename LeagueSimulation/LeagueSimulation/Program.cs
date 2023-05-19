@@ -121,4 +121,3 @@ PrintTable(firstDiv);
 Console.WriteLine("\nSecond Div:");
 PrintTable(secondDiv);
 
-AccessAndRelegation(firstDiv,secondDiv);
