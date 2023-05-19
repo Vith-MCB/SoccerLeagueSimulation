@@ -87,29 +87,38 @@ void AccessAndRelegation(List<Team> firstDiv, List<Team> secondDiv)
     relegateds.Clear();
 }
 
+List<Team> CreateDivision(string filepath)
+{
+    List<Team> division = new List<Team>();
+    string[] teamArr = ReadTeamsFile(filepath);
+    division = CreateTeamsList(teamArr);
+    return division;
+}
+
+void PrintTable(List<Team> table)
+{
+    int pos = 0;
+    foreach (Team team in table)
+    {
+        ++pos;
+        Console.WriteLine($"{pos} | {team.Name} | {team.points}pts");
+    }
+}
+
 #endregion
 
 List<Team> firstDiv = new List<Team>();
 List<Team> secondDiv = new List<Team>();
 
-string[] teamsArr = ReadTeamsFile(firstDivFilepath);
-string[] secDivTeamsArr = ReadTeamsFile(secondDivFilepath);
-
-firstDiv = CreateTeamsList(teamsArr);
-secondDiv = CreateTeamsList(secDivTeamsArr);
+firstDiv = CreateDivision(firstDivFilepath);
+secondDiv = CreateDivision(secondDivFilepath);
 
 Console.WriteLine("PRIMEIRO TESTE:");
 
 Console.WriteLine("First Div:");
-foreach (var team in firstDiv)
-{
-    Console.WriteLine("Nome: {0} | Força {1}",team.Name, team.Strength);
-}
+PrintTable(firstDiv);
 
 Console.WriteLine("\nSecond Div:");
-foreach (var teamSec in secondDiv)
-{
-    Console.WriteLine("Nome: {0} | Força {1}",teamSec.Name, teamSec.Strength);
-}
+PrintTable(secondDiv);
 
 AccessAndRelegation(firstDiv,secondDiv);
