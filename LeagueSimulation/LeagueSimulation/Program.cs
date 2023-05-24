@@ -50,43 +50,6 @@ Team CreateTeam(string str)
         );
 }
 
-void ResetBoard(List<Team> board)
-{
-    foreach (Team team in board)
-    {
-        team.points = 0;
-        team.goalsMade = 0;
-        team.goalsTaken = 0;
-    }
-}
-
-void AccessAndRelegation(List<Team> firstDiv, List<Team> secondDiv)
-{
-    List<Team> relegateds = new List<Team>(4);
-    for (int i = 16; i <= 19; i++)
-    {
-        relegateds.Add(firstDiv[i]);
-    }
-
-    foreach (Team team in relegateds)
-    {
-        firstDiv.Remove(team);
-    }
-
-    for (int i = 0; i <= 3; i++)
-    {
-        firstDiv.Add(secondDiv[0]);
-        secondDiv.Remove(secondDiv[0]);
-    }
-    
-    foreach (Team team in relegateds)
-    {
-        secondDiv.Add(team);
-    }
-    
-    relegateds.Clear();
-}
-
 List<Team> CreateDivision(string filepath)
 {
     List<Team> division = new List<Team>();
@@ -95,29 +58,15 @@ List<Team> CreateDivision(string filepath)
     return division;
 }
 
-void PrintTable(List<Team> table)
-{
-    int pos = 0;
-    foreach (Team team in table)
-    {
-        ++pos;
-        Console.WriteLine($"{pos} | {team.Name} | {team.points}pts");
-    }
-}
-
 #endregion
 
-List<Team> firstDiv = new List<Team>();
-List<Team> secondDiv = new List<Team>();
-
-firstDiv = CreateDivision(firstDivFilepath);
-secondDiv = CreateDivision(secondDivFilepath);
+League BrazilianLeague = new League(CreateDivision(firstDivFilepath), CreateDivision(secondDivFilepath));
 
 Console.WriteLine("PRIMEIRO TESTE:");
 
 Console.WriteLine("First Div:");
-PrintTable(firstDiv);
+BrazilianLeague.PrintTable(BrazilianLeague.FirstDiv);
 
 Console.WriteLine("\nSecond Div:");
-PrintTable(secondDiv);
+BrazilianLeague.PrintTable(BrazilianLeague.SecondDiv);
 
