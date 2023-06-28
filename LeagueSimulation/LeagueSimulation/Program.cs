@@ -64,9 +64,22 @@ League BrazilianLeague = new League(CreateDivision(firstDivFilepath), CreateDivi
 
 Console.WriteLine("PRIMEIRO TESTE:");
 
-Console.WriteLine("First Div:");
-BrazilianLeague.PrintTable(BrazilianLeague.FirstDiv);
+Console.WriteLine(BrazilianLeague.SimulateMatchWithGoals(BrazilianLeague.FirstDiv[16], BrazilianLeague.SecondDiv[0]));
+Console.WriteLine(BrazilianLeague.SimulateMatchWithGoals(BrazilianLeague.FirstDiv[16], BrazilianLeague.SecondDiv[0]));
+Console.WriteLine(BrazilianLeague.SimulateMatchWithGoals(BrazilianLeague.FirstDiv[16], BrazilianLeague.SecondDiv[0]));
+Console.WriteLine(BrazilianLeague.SimulateMatchWithGoals(BrazilianLeague.FirstDiv[16], BrazilianLeague.SecondDiv[0]));
+Console.WriteLine(BrazilianLeague.SimulateMatchWithGoals(BrazilianLeague.FirstDiv[16], BrazilianLeague.SecondDiv[0]));
+Console.WriteLine(BrazilianLeague.SimulateMatchWithGoals(BrazilianLeague.FirstDiv[16], BrazilianLeague.SecondDiv[0]));
+Console.WriteLine(BrazilianLeague.SimulateMatchWithGoals(BrazilianLeague.FirstDiv[16], BrazilianLeague.SecondDiv[0]));
+Console.WriteLine(BrazilianLeague.SimulateMatchWithGoals(BrazilianLeague.FirstDiv[16], BrazilianLeague.SecondDiv[0]));
+Console.WriteLine(BrazilianLeague.SimulateMatchWithGoals(BrazilianLeague.FirstDiv[16], BrazilianLeague.SecondDiv[0]));
+Console.WriteLine(BrazilianLeague.SimulateMatchWithGoals(BrazilianLeague.FirstDiv[16], BrazilianLeague.SecondDiv[0]));
+Console.WriteLine(BrazilianLeague.SimulateMatchWithGoals(BrazilianLeague.FirstDiv[16], BrazilianLeague.SecondDiv[0]));
 
-Console.WriteLine("\nSecond Div:");
-BrazilianLeague.PrintTable(BrazilianLeague.SecondDiv);
 
+//BrazilianLeague.AccessAndRelegation(BrazilianLeague.FirstDiv,BrazilianLeague.SecondDiv,4);
+// Console.WriteLine("First Div:");
+// BrazilianLeague.PrintTable(BrazilianLeague.FirstDiv);
+//
+// Console.WriteLine("\nSecond Div:");
+// BrazilianLeague.PrintTable(BrazilianLeague.SecondDiv);
