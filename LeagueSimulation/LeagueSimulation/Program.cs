@@ -12,6 +12,7 @@ const string secondDivFilepath =
 const string outputfile = 
     @"D:\Programação\GitHub\SoccerLeagueSimulation\LeagueSimulation\files\outputs\output.txt";
     
+
 #endregion
 
 #region Functions
@@ -83,3 +84,6 @@ Console.WriteLine(BrazilianLeague.SimulateMatchWithGoals(BrazilianLeague.FirstDi
 //
 // Console.WriteLine("\nSecond Div:");
 // BrazilianLeague.PrintTable(BrazilianLeague.SecondDiv);
+
+
+

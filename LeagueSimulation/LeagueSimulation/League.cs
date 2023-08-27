@@ -71,27 +71,51 @@ public class League
             team.goalsTaken = 0;
         }
     }
-
-    public string SimulateMatchWithGoals(Team team1, Team team2)
+    
+    static double CalculateWinProbability(int teamStrengthA, int teamStrengthB)
+    {
+        const double K = 0.01; // Adjust this constant for sensitivity
+        return 1.0 / (1.0 + Math.Pow(10, (teamStrengthB - teamStrengthA) * K)); //Win probability
+    }
+    
+    private static int CalculateGoals(double winProbability, int teamStrengthScoring, int teamStrengthConceding)
     {
         Random random = new Random();
 
+        // Adjust lambda based on the strengths of teams
+        double lambda = 0.009 * (teamStrengthScoring - teamStrengthConceding) + 1.5;
+        //Console.WriteLine("Lambda: {0}",lambda);
+            
+        int goals = 0;
+        double p = 1.0;
+
+        do
+        {
+            p *= random.NextDouble();
+            goals++;
+        } while (p > Math.Exp(-lambda));
+
+        return goals - 1;
+    }
+    
+    public string SimulateMatchWithGoals(Team team1, Team team2)
+    {
         // Calculate the probability of each team winning based on their adjusted strengths
-        double team1Probability = (team1.Strength * 0.9) / 100.0;
-        double team2Probability = (team2.Strength * 0.9) / 100.0;
+        double team1Probability = CalculateWinProbability((int)team1.Strength,(int)team2.Strength);
+        double team2Probability = 1 - team1Probability;
 
         // Calculate the number of goals made by each team based on their probabilities
-        int team1Goals = CalculateGoals(team1Probability, random);
-        int team2Goals = CalculateGoals(team2Probability, random);
+        int team1Goals = CalculateGoals(team1Probability, (int)team1.Strength, (int)team2.Strength);
+        int team2Goals = CalculateGoals(team2Probability,(int)team2.Strength, (int)team1.Strength);
 
         // Compare the number of goals made to determine the winner
         if (team1Goals > team2Goals)
         {
-            return $"Team 1 ({team1Goals} goals) x Team 2 ({team2Goals} goals)";
+            return $"{team1.Name} {team1Goals} x {team2.Name} {team2Goals}";
         }
         else if (team2Goals > team1Goals)
         {
-            return $"Team 2 ({team2Goals} goals) x Team 1 ({team1Goals} goals)";
+            return $"{team2.Name} {team2Goals} x {team1.Name} {team1Goals}";
         }
         else
         {
@@ -99,25 +123,7 @@ public class League
         }
     }
 
-    private static int CalculateGoals(double probability, Random random)
-    {
-        int goals = 0;
-
-        // Generate a random value between 0 and 1
-        double randomValue = random.NextDouble();
-
-        // Determine the number of goals based on the probability and random value
-        while (randomValue < probability)
-        {
-            goals++;
-
-            // Adjust the probability based on team strength
-            probability -= 0.05;
-            randomValue = random.NextDouble();
-        }
-
-        return goals;
-    }
-
     #endregion
+    
+    
 }
