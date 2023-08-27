@@ -65,17 +65,17 @@ League BrazilianLeague = new League(CreateDivision(firstDivFilepath), CreateDivi
 
 Console.WriteLine("PRIMEIRO TESTE:");
 
-Console.WriteLine(BrazilianLeague.SimulateMatchWithGoals(BrazilianLeague.FirstDiv[16], BrazilianLeague.SecondDiv[0]));
-Console.WriteLine(BrazilianLeague.SimulateMatchWithGoals(BrazilianLeague.FirstDiv[16], BrazilianLeague.SecondDiv[0]));
-Console.WriteLine(BrazilianLeague.SimulateMatchWithGoals(BrazilianLeague.FirstDiv[16], BrazilianLeague.SecondDiv[0]));
-Console.WriteLine(BrazilianLeague.SimulateMatchWithGoals(BrazilianLeague.FirstDiv[16], BrazilianLeague.SecondDiv[0]));
-Console.WriteLine(BrazilianLeague.SimulateMatchWithGoals(BrazilianLeague.FirstDiv[16], BrazilianLeague.SecondDiv[0]));
-Console.WriteLine(BrazilianLeague.SimulateMatchWithGoals(BrazilianLeague.FirstDiv[16], BrazilianLeague.SecondDiv[0]));
-Console.WriteLine(BrazilianLeague.SimulateMatchWithGoals(BrazilianLeague.FirstDiv[16], BrazilianLeague.SecondDiv[0]));
-Console.WriteLine(BrazilianLeague.SimulateMatchWithGoals(BrazilianLeague.FirstDiv[16], BrazilianLeague.SecondDiv[0]));
-Console.WriteLine(BrazilianLeague.SimulateMatchWithGoals(BrazilianLeague.FirstDiv[16], BrazilianLeague.SecondDiv[0]));
-Console.WriteLine(BrazilianLeague.SimulateMatchWithGoals(BrazilianLeague.FirstDiv[16], BrazilianLeague.SecondDiv[0]));
-Console.WriteLine(BrazilianLeague.SimulateMatchWithGoals(BrazilianLeague.FirstDiv[16], BrazilianLeague.SecondDiv[0]));
+BrazilianLeague.SimulateMatchWithGoals(BrazilianLeague.FirstDiv[16], BrazilianLeague.SecondDiv[0]);
+BrazilianLeague.SimulateMatchWithGoals(BrazilianLeague.FirstDiv[16], BrazilianLeague.SecondDiv[0]);
+BrazilianLeague.SimulateMatchWithGoals(BrazilianLeague.FirstDiv[16], BrazilianLeague.SecondDiv[0]);
+BrazilianLeague.SimulateMatchWithGoals(BrazilianLeague.FirstDiv[16], BrazilianLeague.SecondDiv[0]);
+BrazilianLeague.SimulateMatchWithGoals(BrazilianLeague.FirstDiv[16], BrazilianLeague.SecondDiv[0]);
+
+
+Console.WriteLine(BrazilianLeague.FirstDiv[16].points);
+
+
+//static List<Team> SimulateLeague()
 
 
 //BrazilianLeague.AccessAndRelegation(BrazilianLeague.FirstDiv,BrazilianLeague.SecondDiv,4);

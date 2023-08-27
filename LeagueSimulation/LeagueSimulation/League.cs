@@ -69,6 +69,9 @@ public class League
             team.points = 0;
             team.goalsMade = 0;
             team.goalsTaken = 0;
+            team.draws = 0;
+            team.lost = 0;
+            team.win = 0;
         }
     }
     
@@ -98,7 +101,7 @@ public class League
         return goals - 1;
     }
     
-    public string SimulateMatchWithGoals(Team team1, Team team2)
+    public void SimulateMatchWithGoals(Team team1, Team team2)
     {
         // Calculate the probability of each team winning based on their adjusted strengths
         double team1Probability = CalculateWinProbability((int)team1.Strength,(int)team2.Strength);
@@ -108,22 +111,41 @@ public class League
         int team1Goals = CalculateGoals(team1Probability, (int)team1.Strength, (int)team2.Strength);
         int team2Goals = CalculateGoals(team2Probability,(int)team2.Strength, (int)team1.Strength);
 
-        // Compare the number of goals made to determine the winner
-        if (team1Goals > team2Goals)
+        //Sum of match goals for each team
+        //Team 1
+        team1.goalsMade += team1Goals;
+        team1.goalsTaken += team2Goals;
+
+        //team2
+        team2.goalsMade += team2Goals;
+        team2.goalsTaken += team1Goals;
+        
+        //Points system
+        if (team1Goals == team2Goals) //Draw
         {
-            return $"{team1.Name} {team1Goals} x {team2.Name} {team2Goals}";
+            team1.points += 1;
+            team2.points += 1;
+
+            team1.draws += 1;
+            team2.draws += 1;
         }
-        else if (team2Goals > team1Goals)
+        else if (team1Goals > team2Goals)
         {
-            return $"{team2.Name} {team2Goals} x {team1.Name} {team1Goals}";
+            team1.points += 3;
+            team1.win += 1;
+
+            team2.lost += 1;
         }
         else
         {
-            return $"Draw ({team1Goals} goals each)"; // In case both teams score the same number of goals
+            team2.points += 3;
+            team2.win += 1;
+
+            team1.lost += 1;
         }
+            
     }
 
     #endregion
-    
     
 }
