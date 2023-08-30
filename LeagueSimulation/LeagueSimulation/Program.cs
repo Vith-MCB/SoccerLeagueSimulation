@@ -65,15 +65,9 @@ League BrazilianLeague = new League(CreateDivision(firstDivFilepath), CreateDivi
 
 Console.WriteLine("PRIMEIRO TESTE:");
 
-BrazilianLeague.SimulateMatchWithGoals(BrazilianLeague.FirstDiv[16], BrazilianLeague.SecondDiv[0]);
-BrazilianLeague.SimulateMatchWithGoals(BrazilianLeague.FirstDiv[16], BrazilianLeague.SecondDiv[0]);
-BrazilianLeague.SimulateMatchWithGoals(BrazilianLeague.FirstDiv[16], BrazilianLeague.SecondDiv[0]);
-BrazilianLeague.SimulateMatchWithGoals(BrazilianLeague.FirstDiv[16], BrazilianLeague.SecondDiv[0]);
-BrazilianLeague.SimulateMatchWithGoals(BrazilianLeague.FirstDiv[16], BrazilianLeague.SecondDiv[0]);
+BrazilianLeague.SimulateMatches(BrazilianLeague.FirstDiv);
 
-
-Console.WriteLine(BrazilianLeague.FirstDiv[16].points);
-
+BrazilianLeague.PrintTable(BrazilianLeague.FirstDiv);
 
 //static List<Team> SimulateLeague()
 

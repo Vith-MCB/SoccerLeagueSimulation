@@ -4,6 +4,15 @@
 //This object will be used to simulate the league and organize the code
 public class League
 {
+    //Here, you can define the amount of points according to your championship
+    //By default (Brasileirão = Victory: 3 point / Draw: 1 point
+    #region Constants 
+    private const int DRAW = 0;
+    private const int WIN = 3;
+    #endregion
+    
+    
+    
     //By standard, the league name is "Brasileirao", it can be changed
     public string name = "Brasileirao";
 
@@ -51,8 +60,29 @@ public class League
         relegateds.Clear(); // Clear the relegated teams list
     }
 
+    public static void SortTeams(List<Team> teams)
+    {
+        foreach (Team team in teams)
+        {
+            team.CalculateGoalsDifference();
+        }
+        
+        teams.Sort((team1, team2) =>
+        {
+            // Compare by points first
+            int pointsComparison = team2.points.CompareTo(team1.points); // Higher points first
+            if (pointsComparison != 0)
+            {
+                return pointsComparison;
+            }
+
+            // If points are the same, compare by goals scored
+            return team2.goalsDif.CompareTo(team1.goalsDif); // More goals scored first
+        });
+    }
     public void PrintTable(List<Team> table)
     {
+        SortTeams(table);
         int pos = 0;
         foreach (Team team in table)
         {
@@ -67,7 +97,7 @@ public class League
         foreach (Team team in board)
         {
             team.points = 0;
-            team.goalsMade = 0;
+            team.goalsScored = 0;
             team.goalsTaken = 0;
             team.draws = 0;
             team.lost = 0;
@@ -84,13 +114,12 @@ public class League
     private static int CalculateGoals(double winProbability, int teamStrengthScoring, int teamStrengthConceding)
     {
         Random random = new Random();
-
-        // Adjust lambda based on the strengths of teams
-        double lambda = 0.009 * (teamStrengthScoring - teamStrengthConceding) + 1.5;
-        //Console.WriteLine("Lambda: {0}",lambda);
-            
+        const double lambdaFactor = 0.009;
         int goals = 0;
         double p = 1.0;
+            
+        // Adjust lambda based on the strengths of teams
+        double lambda = lambdaFactor * (teamStrengthScoring - teamStrengthConceding) + 1.5;
 
         do
         {
@@ -113,39 +142,57 @@ public class League
 
         //Sum of match goals for each team
         //Team 1
-        team1.goalsMade += team1Goals;
+        team1.goalsScored += team1Goals;
         team1.goalsTaken += team2Goals;
 
         //team2
-        team2.goalsMade += team2Goals;
+        team2.goalsScored += team2Goals;
         team2.goalsTaken += team1Goals;
         
         //Points system
         if (team1Goals == team2Goals) //Draw
         {
-            team1.points += 1;
-            team2.points += 1;
+            team1.points += DRAW;
+            team2.points += DRAW;
 
-            team1.draws += 1;
-            team2.draws += 1;
+            team1.draws++;
+            team2.draws++;
         }
-        else if (team1Goals > team2Goals)
+        else if (team1Goals > team2Goals) //Team 1 Won
         {
-            team1.points += 3;
-            team1.win += 1;
-
-            team2.lost += 1;
+            team1.points += WIN;
+            
+            team1.win++;
+            team2.lost++;
         }
-        else
+        else //Team 2 Won
         {
-            team2.points += 3;
-            team2.win += 1;
-
-            team1.lost += 1;
+            team2.points += WIN;
+            
+            team2.win++;
+            team1.lost++;
         }
             
     }
 
+    public void SimulateMatches(List<Team> teams)
+    {
+        for(int firstTeam = 0; firstTeam < teams.Count; firstTeam++)
+        {
+            for (int secondTeam = 0; secondTeam < teams.Count; secondTeam++)
+            {
+                if(firstTeam == secondTeam) //Garanting that the team will not match up with itself
+                { 
+                    if (secondTeam < (teams.Count - 1)) { secondTeam++; }
+                    else { return; }
+                    
+                } 
+                
+                SimulateMatchWithGoals(teams[firstTeam], teams[secondTeam]);
+            }
+        }
+    }
+    
     #endregion
     
 }
