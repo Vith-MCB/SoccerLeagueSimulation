@@ -27,6 +27,11 @@ public class Team
     {
         this.goalsDif = this.goalsScored - this.goalsTaken;
     }
+    
+    public int CalculateMatchesPlayed()
+    {
+        return this.win + this.draws + this.lost;
+    }
 
     public void CalculateNewStrength(double percentage){ Strength *= percentage; }
 
