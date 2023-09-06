@@ -79,5 +79,28 @@ BrazilianLeague.PrintTable(BrazilianLeague.FirstDiv);
 // Console.WriteLine("\nSecond Div:");
 // BrazilianLeague.PrintTable(BrazilianLeague.SecondDiv);
 
+double CalculatePercentageBasedOnPosition(int position)
+{
+    // Ensure position is within a reasonable range (e.g., 1 to 100)
+    position = Math.Max(1, Math.Min(100, position));
+
+    // Calculate the percentage based on position
+    // Adjust these values to fit your simulation's dynamics
+    double minPercentage = 0.1; // Minimum percentage increase
+    double maxPercentage = 1.0; // Maximum percentage increase
+
+    // Linearly map position to a percentage between min and max
+    double percentage = minPercentage + (maxPercentage - minPercentage) * (position - 1) / 99;
+
+    if (position == 1) {return 1.02;}
+    else if (position >= 2 && position <= 4){return (percentage / 10) + 1;}
+    else if(position > 4 && position <= 12){return (percentage/10.3)+1;}
+    else if(position > 12 && position <= 16){return (percentage/10)+0.9;}
+    else{return (percentage/10)+0.8;}
+    
+}
+
+
+Console.WriteLine(CalculatePercentageBasedOnPosition(4));
 
 
