@@ -8,7 +8,7 @@ public class Team
     #endregion
 
     #region Simulated data
-    public int points = 0, goalsScored = 0, goalsTaken = 0, win = 0, lost = 0, draws = 0, goalsDif = 0;
+    public int points = 0, goalsScored = 0, goalsTaken = 0, win = 0, lost = 0, draws = 0, goalsDif = 0, position = 0;
     #endregion
     
     //Default constructor

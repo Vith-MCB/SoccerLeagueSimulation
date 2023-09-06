@@ -87,9 +87,10 @@ public class League
         foreach (Team team in table)
         {
             ++pos;
+            team.position = pos;
             int matchesPlayed = team.CalculateMatchesPlayed();
             // Print team position, name, and points
-            Console.WriteLine("{0} | {1} | {2}pts | {3}mp | {4}W | {5}D | {6}L | {7}Gd", pos,team.Name,team.points, 
+            Console.WriteLine("{0} | {1} | {2}pts | {3}mp | {4}W | {5}D | {6}L | {7}Gd", team.position,team.Name,team.points, 
                                                                                         matchesPlayed,team.win,team.draws,
                                                                                         team.lost,team.goalsDif);
         }
