@@ -18,4 +18,5 @@ This project is licensed under the MIT License.
 
 Acknowledgments
 The program is built using object-oriented programming principles and was inspired by the Brazilian soccer league structure.
+
 Feel free to customize this README description to fit your specific project and add any additional sections or information as necessary.
