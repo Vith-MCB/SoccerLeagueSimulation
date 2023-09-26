@@ -100,7 +100,6 @@ double CalculatePercentageBasedOnPosition(int position)
     
 }
 
-
 Console.WriteLine(CalculatePercentageBasedOnPosition(4));
 
 
